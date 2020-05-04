@@ -16,7 +16,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.body {
-  padding: calc((100% - 1366px) / 2);
-  text-align: center;
-}
+

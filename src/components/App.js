@@ -1,10 +1,11 @@
-import { Input } from 'antd';
+import { Input, Pagination, Select } from 'antd';
 import { debounce } from 'lodash';
 import React, { useCallback, useState } from 'react';
 import '../overwrite.css';
 import Header from './header';
 import styles from './styles.module.scss';
 const { Search } = Input;
+const { Option } = Select;
 
 const mock = [
   {
@@ -43,6 +44,7 @@ const mock = [
 
 function App() {
   const [data, setData] = useState(mock);
+  const [selectedCity, setSelectedCity] = useState('');
 
   const debouncedSearch = useCallback(
     debounce((value) => {
@@ -53,12 +55,21 @@ function App() {
   return (
     <div>
       <Header />
-      <div className='body'>
+      <div className={styles.body}>
         <Search
           enterButton
-          placeholder="Search by job's name ..."
+          placeholder='Keyword skill (Java, iOS...), Job Title, Company...'
           onSearch={(value) => debouncedSearch(value)}
         />
+        <Select
+          style={{ width: '250px', margin: '10px 0' }}
+          value={selectedCity}
+          onChange={(value) => setSelectedCity(value)}>
+          <Option value=''>All cities</Option>
+          <Option value='ho-chi-minh-hcm'>Ho Chi Minh</Option>
+          <Option value='ha-noi'>Ha Noi</Option>
+          <Option value='da-nang'>Da Nang</Option>
+        </Select>
         {data.map((el, index) => {
           return (
             <div key={index} className={styles.itemContainer}>
@@ -76,6 +87,7 @@ function App() {
             </div>
           );
         })}
+        <Pagination pageSize={4} total={10} className={styles.pagination} />
       </div>
     </div>
   );

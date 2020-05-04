@@ -1,59 +1,67 @@
-.itemContainer {
+.body {
   width: 75%;
-  margin: 25px auto;
-  display: flex;
-  align-items: center;
-  border: 1px solid #eee;
-  padding: 10px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  &:hover {
-    box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.5);
-    transform: scale(1.05);
+  margin: 10px auto;
+  padding: 10px 5px;
+  .pagination {
+    text-align: center;
+    margin: auto;
   }
-  img {
-    width: 150px;
-    height: 150px;
-  }
-  .content {
-    margin-left: 50px;
-    width: 100%;
-    h1,
-    p {
-      text-align: left;
+  .itemContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin: 10px auto;
+    &:hover {
+      box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.5);
+      transform: scale(1.05);
     }
-    .description {
-      .location {
-        float: right;
-        color: rgb(233, 98, 98);
-      }
+    img {
+      width: 150px;
+      height: 150px;
+    }
+    .content {
+      margin-left: 50px;
+      width: 100%;
+      h1,
       p {
-        float: left;
-        max-width: 500px;
-        color: rgb(148, 144, 144);
+        text-align: left;
+      }
+      .description {
+        .location {
+          float: right;
+          color: rgb(233, 98, 98);
+        }
+        p {
+          float: left;
+          max-width: 500px;
+          color: rgb(148, 144, 144);
+        }
       }
     }
   }
   @media only screen and (max-width: 600px) {
-    width: 95%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 100%;
     img {
-      width: 50px;
-      height: 50px;
+      width: 40px !important;
+      height: 40px !important;
     }
-    .content {
-      margin-left: 10px;
-      h1 {
-        font-size: 14px;
-      }
-      p {
-        font-size: 10px;
-      }
-      .location {
-        font-size: 10px;
-        float: none !important;
-        text-align: left;
+    .itemContainer {
+      .content {
+        margin-left: 10px;
+        h1 {
+          font-size: 14px;
+        }
+        p {
+          font-size: 10px;
+        }
+        .location {
+          font-size: 10px;
+          float: none !important;
+          text-align: left;
+        }
       }
     }
   }

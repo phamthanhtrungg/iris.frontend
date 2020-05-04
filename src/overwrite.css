@@ -1,12 +1,11 @@
 * {
   outline: none !important;
 }
-.ant-input-group-wrapper {
-  width: 75%;
+.ant-select {
+  display: block;
 }
 @media only screen and (max-width: 600px) {
   .ant-input-group-wrapper {
-    margin-top: 20px;
     width: 95%;
   }
 }
