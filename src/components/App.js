@@ -39,14 +39,6 @@ const mock = [
     location: 'HCM',
     score: 5,
   },
-  {
-    name: '05 Junior JavaScript / ReactJS Developer',
-    link: 'http://localhost',
-    description:
-      'We are seeking a FrontEnd developer, who will work closely with our product managers, UI / UX designers, QA and other developers to help translate...',
-    location: 'HCM',
-    score: 5,
-  },
 ];
 
 function App() {

@@ -7,7 +7,7 @@ export default function () {
   return (
     <div className={styles.header}>
       <FontAwesomeIcon icon={faSearch} size='6x' color='white' />
-      <h1> Simple Search Engine</h1>
+      <h1 style={{ color: 'white' }}> Simple Search Engine</h1>
     </div>
   );
 }

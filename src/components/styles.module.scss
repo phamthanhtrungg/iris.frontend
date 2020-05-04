@@ -1,11 +1,10 @@
 .itemContainer {
-  width: 920px;
-  height: 200px;
+  width: 75%;
   margin: 25px auto;
   display: flex;
   align-items: center;
   border: 1px solid #eee;
-  padding: 5px 10px;
+  padding: 10px;
   cursor: pointer;
   transition: all 0.5s ease;
   &:hover {
@@ -19,7 +18,6 @@
   .content {
     margin-left: 50px;
     width: 100%;
-    height: 150px;
     h1,
     p {
       text-align: left;
@@ -31,9 +29,31 @@
       }
       p {
         float: left;
-
         max-width: 500px;
         color: rgb(148, 144, 144);
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    width: 95%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    .content {
+      margin-left: 10px;
+      h1 {
+        font-size: 14px;
+      }
+      p {
+        font-size: 10px;
+      }
+      .location {
+        font-size: 10px;
+        float: none !important;
+        text-align: left;
       }
     }
   }
