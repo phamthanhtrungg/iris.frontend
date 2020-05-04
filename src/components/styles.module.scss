@@ -1,0 +1,40 @@
+.itemContainer {
+  width: 920px;
+  height: 200px;
+  margin: 25px auto;
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  &:hover {
+    box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  .content {
+    margin-left: 50px;
+    width: 100%;
+    height: 150px;
+    h1,
+    p {
+      text-align: left;
+    }
+    .description {
+      .location {
+        float: right;
+        color: rgb(233, 98, 98);
+      }
+      p {
+        float: left;
+
+        max-width: 500px;
+        color: rgb(148, 144, 144);
+      }
+    }
+  }
+}
