@@ -16,7 +16,6 @@
     margin: 10px auto;
     &:hover {
       box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.5);
-      transform: scale(1.05);
     }
     img {
       width: 150px;
@@ -30,15 +29,6 @@
         text-align: left;
       }
       .description {
-        .location {
-          float: right;
-          color: rgb(233, 98, 98);
-        }
-        p {
-          float: left;
-          max-width: 500px;
-          color: rgb(148, 144, 144);
-        }
       }
     }
   }
