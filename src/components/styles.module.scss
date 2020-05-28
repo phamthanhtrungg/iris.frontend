@@ -2,11 +2,13 @@
   width: 75%;
   margin: 10px auto;
   padding: 10px 5px;
+
   .pagination {
     text-align: center;
     margin: auto;
   }
   .itemContainer {
+    background-color: #fff;
     display: flex;
     align-items: center;
     border: 1px solid #eee;
@@ -19,7 +21,6 @@
     }
     img {
       width: 150px;
-      height: 150px;
     }
     .content {
       margin-left: 50px;
@@ -54,5 +55,36 @@
         }
       }
     }
+  }
+}
+.loadMore {
+  width: 100%;
+  font-weight: bold;
+  background-color: #ffff;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px auto;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+.scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 5px;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  animation: moveup 0.5s ease infinite alternate;
+  &:focus {
+  }
+}
+@keyframes moveup {
+  from {
+    bottom: 30px;
+  }
+  to {
+    bottom: 40px;
   }
 }
