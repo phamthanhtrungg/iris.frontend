@@ -14,6 +14,7 @@ function App() {
   const [hasNext, setNext] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [scrollToBottom, setScollBottom] = useState(false);
+  const [didFetch, setDidFetch] = useState(false);
 
   const debouncedSearch = useCallback(
     debounce((value) => {
@@ -25,6 +26,7 @@ function App() {
           setData(data.datas);
           setNext(data.next);
           setSearchStr(value);
+          setDidFetch(true);
         })
         .catch((err) => {
           console.error(err);
@@ -53,7 +55,7 @@ function App() {
       D.body.clientHeight,
       D.documentElement.clientHeight
     );
-    if (scrollHeight === maxHeight) {
+    if (scrollHeight > maxHeight / 2) {
       setScollBottom(true);
     } else {
       setScollBottom(false);
@@ -88,23 +90,30 @@ function App() {
           onSearch={(value) => debouncedSearch(value)}
         />
         {isLoading ? <div>Is Loading</div> : null}
-        {data.length === 0 ? (
+        {data.length === 0 && didFetch ? (
           <div>Not found</div>
         ) : (
           data.map((el, index) => {
             return (
-              <div key={index} className={styles.itemContainer}>
-                <img alt='...' src={el.company.logo} />
-                <div className={styles.content}>
-                  <h1>{el.name}</h1>
-                  <div className={styles.description}>
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: el.description,
-                      }}></div>
+              // eslint-disable-next-line react/jsx-no-target-blank
+              <a
+                key={index}
+                href={el.link}
+                target='_blank'
+                style={{ textDecoration: 'none', color: 'black' }}>
+                <div key={index} className={styles.itemContainer}>
+                  <img alt='...' src={el.company.logo} />
+                  <div className={styles.content}>
+                    <h1>{el.name}</h1>
+                    <div className={styles.description}>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: el.description.substr(0, 300) + '...',
+                        }}></div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             );
           })
         )}
@@ -121,6 +130,7 @@ function App() {
         <div
           onClick={() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            setScollBottom(false);
           }}
           className={styles.scrollToTop}>
           {' '}
